@@ -1,5 +1,4 @@
 import { Injectable } from '@nestjs/common';
-// import { prisma } from 'utils/db';
 import { PrismaClient } from '@prisma/client';
 
 @Injectable()
@@ -20,20 +19,20 @@ export class UserService {
 
   async getUserById(id: number) {
     return this.prisma.user.findUnique({
-      where: { id },
+      where: { id: Number(id) },
     });
   }
 
   async updateUser(id: number, data: { email?: string; name?: string }) {
     return this.prisma.user.update({
-      where: { id },
+      where: { id: Number(id) },
       data,
     });
   }
 
   async deleteUser(id: number) {
     return this.prisma.user.delete({
-      where: { id },
+      where: { id: Number(id) },
     });
   }
 }
