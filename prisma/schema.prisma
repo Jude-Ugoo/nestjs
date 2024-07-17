@@ -30,3 +30,19 @@ model Product {
   createdAt   DateTime @default(now())
   updatedAt   DateTime @updatedAt
 }
+
+model Plan {
+  id          String @id @default(uuid())
+  name        String
+  description String
+  price       Float
+}
+
+model Transaction {
+  id        String @id @default(uuid())
+  userId    String
+  planId    String
+  status    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
